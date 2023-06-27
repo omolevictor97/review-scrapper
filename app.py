@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request,jsonify
-from flask_cors import CORS,cross_origin
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS, cross_origin
 import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
@@ -16,7 +16,7 @@ def homePage():
 def index():
     if request.method == 'POST':
         try:
-            searchString = request.form['content'].replace(" ","")
+            searchString = request.form['content'].replace(" ", "")
             flipkart_url = "https://www.flipkart.com/search?q=" + searchString
             uClient = uReq(flipkart_url)
             flipkartPage = uClient.read()
